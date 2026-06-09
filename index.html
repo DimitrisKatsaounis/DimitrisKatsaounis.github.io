@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution - Possible | AI Adoption</title>
+    <!-- Tailwind CSS for clean, premium responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0B2545',
+                            900: '#134074',
+                        },
+                        brightBlue: '#00B4D8',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for clean icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .smooth-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- ================================================================= -->
+    <!-- DESKTOP HEADER: DYNAMIC SHRINKING TOOLBAR (FIXED OVERLAP) -->
+    <!-- ================================================================= -->
+    <header id="desktop-header" class="group hidden md:block fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-sm smooth-transition h-44">
+        <div class="max-w-7xl mx-auto px-8 h-full flex justify-between items-center">
+            <!-- Dynamic Wrapper: Changes height alongside global header script state -->
+            <div id="logo-wrap" class="w-64 h-full flex items-center smooth-transition origin-left">
+                <img src="SolutionPossible.png" alt="Solution - Possible Logo" class="w-full h-auto max-h-full object-contain smooth-transition transform group-[.scrolled]:scale-75 origin-left">
+            </div>
+            <!-- Menu Navigation Links remain perfectly inline without layout jumping -->
+            <nav class="flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                <a href="#philosophy" class="text-navy-800 hover:text-brightBlue transition">The Reality</a>
+                <a href="#roi" class="text-navy-800 hover:text-brightBlue transition">Productivity & Lifestyle</a>
+                <a href="#cases" class="text-navy-800 hover:text-brightBlue transition">Adoption Examples</a>
+                <a href="#approach" class="text-navy-800 hover:text-brightBlue transition">The Approach</a>
+                <a href="#contact" class="bg-navy-800 text-white px-6 py-3 rounded-lg shadow hover:bg-brightBlue transition">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Corrected Spacer height matches desktop initial load state exactly to prevent jumping -->
+    <div id="header-spacer" class="hidden md:block h-44 smooth-transition"></div>
+
+
+    <!-- ================================================================= -->
+    <!-- MOBILE HEADER: ROLL-AWAY WITH NAVIGATION STACKED RIGHT -->
+    <!-- ================================================================= -->
+    <header id="mobile-header" class="block md:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 smooth-transition transform translate-y-0 shadow-sm">
+        <div class="flex flex-col items-center justify-center p-3 gap-2 w-full">
+            <!-- Logo area handles vertical image margins safely -->
+            <div id="mobile-logo-box" class="h-12 w-auto max-w-[180px] smooth-transition opacity-100 scale-100">
+                <img src="SolutionPossible.png" alt="Solution - Possible Logo" class="w-full h-full object-contain">
+            </div>
+            
+            <!-- Navigation items align dynamically to the right side -->
+            <nav class="flex items-center justify-end w-full overflow-x-auto gap-4 text-[11px] font-bold uppercase tracking-wider text-navy-800 pr-2 pb-1">
+                <a href="#philosophy" class="hover:text-brightBlue transition">Reality</a>
+                <a href="#roi" class="hover:text-brightBlue transition">ROI</a>
+                <a href="#cases" class="hover:text-brightBlue transition">Examples</a>
+                <a href="#approach" class="hover:text-brightBlue transition">Approach</a>
+                <a href="#contact" class="text-brightBlue hover:text-navy-900 transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Top Offset Spacer -->
+    <div class="block md:hidden h-[104px]"></div>
+
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-navy-800 to-navy-900 text-white py-20 md:py-32 px-4 md:px-6 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block bg-brightBlue/20 text-brightBlue text-[10px] md:text-xs font-bold uppercase tracking-widest px-3 py-1 md:px-4 md:py-1.5 rounded-full mb-6 border border-brightBlue/30">
+                AI Adoption Strategy
+            </span>
+            <h1 class="text-3xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                Your business works your way.<br>
+                <span class="text-brightBlue">Routines should adapt to you.</span>
+            </h1>
+            <p class="text-sm md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed md:leading-normal">
+                Traditional software forces you to change how you work. We don't. We fit AI around your existing habits, helping your team make small adjustments that deliver big results.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 px-4 sm:px-0">
+                <a href="#contact" class="bg-brightBlue text-white font-semibold text-sm md:text-base px-8 py-3.5 rounded shadow hover:bg-sky-400 transition text-center w-full sm:w-auto">
+                    Find Your White Space
+                </a>
+                <a href="#cases" class="bg-white/10 hover:bg-white/20 text-white font-semibold text-sm md:text-base px-8 py-3.5 rounded border border-white/20 transition text-center w-full sm:w-auto">
+                    View Productivity Benchmarks
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Reality & Resistance Filter -->
+    <section id="philosophy" class="py-16 md:py-24 bg-white border-b border-slate-200 px-4 md:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-2">Overcoming Change Resistance</h2>
+                <p class="text-xs md:text-sm text-slate-500">Direct answers to the primary operational concerns holding small businesses back from modernization.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div class="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-200/60">
+                    <div class="text-brightBlue font-bold text-[10px] md:text-xs uppercase tracking-wider mb-2">Operational Constraint</div>
+                    <h3 class="text-lg md:text-xl font-bold text-navy-800 mb-3">"We are too busy to learn a new system."</h3>
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+                        <strong>Zero Learning Curve.</strong> Complex dashboards are avoided entirely. Strategy concentrates on integrating functional AI processes directly into the basic tools employees open daily—spreadsheets, communications, and existing native configurations.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200/60">
+                    <div class="text-brightBlue font-bold text-[10px] md:text-xs uppercase tracking-wider mb-2">Risk Mitigation</div>
+                    <h3 class="text-xl font-bold text-navy-800 mb-3">The fear of the new and operational chaos.</h3>
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+                        <strong>The Isolated Micro-Step.</strong> Massive systemic overhauls invite disruption. Core operational models remain preserved by isolating specific <strong>Micro-Area(s)</strong>, optimizing those precise boundaries completely before expanding focus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productivity & Lifestyle ROI -->
+    <section id="roi" class="py-16 md:py-24 max-w-6xl mx-auto px-4 md:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-2">Productivity & Lifestyle Outcomes</h2>
+            <p class="text-xs md:text-sm text-slate-500">Tangible return on investment centered on workforce capacity updates and business owner clarity.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="bg-white p-6 md:p-8 rounded-xl border border-slate-200 shadow-sm">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-50 text-brightBlue rounded-lg flex items-center justify-center text-lg md:text-xl mb-4 md:mb-6">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                </div>
+                <h3 class="text-lg md:text-xl font-bold text-navy-800 mb-2">Win Back Time</h3>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Manual workflows transition into background execution cycles. Reclaim baseline hours weekly to protect strategic initiatives or lifestyle balance.</p>
+            </div>
+
+            <div class="bg-white p-6 md:p-8 rounded-xl border border-slate-200 shadow-sm">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-50 text-brightBlue rounded-lg flex items-center justify-center text-lg md:text-xl mb-4 md:mb-6">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                </div>
+                <h3 class="text-lg md:text-xl font-bold text-navy-800 mb-2">Gain "White Space"</h3>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Eliminate recurring cognitive overhead and manual file sorting. Removing team friction loops restores focus and day-to-day administrative clarity.</p>
+            </div>
+
+            <div class="bg-white p-6 md:p-8 rounded-xl border border-slate-200 shadow-sm">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-50 text-brightBlue rounded-lg flex items-center justify-center text-lg md:text-xl mb-4 md:mb-6">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <h3 class="text-lg md:text-xl font-bold text-navy-800 mb-2">Flawless Precision</h3>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Slash the quiet financial toll of typing mistakes and recording variances. Standardized data cross-checks execute tasks reliably every loop.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Measurable AI Adoption Examples -->
+    <section id="cases" class="bg-slate-100 py-16 md:py-24 px-4 md:px-6 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-2">Operational Realities: AI Adoption in Action</h2>
+                <p class="text-xs md:text-sm text-slate-500">Concrete business examples showing how small changes inside focus areas yield massive internal adjustments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Finance Example -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden flex flex-col justify-between shadow-sm">
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">Finance</span>
+                            <span class="text-slate-400 text-[10px] font-mono">Micro-Area Focus</span>
+                        </div>
+                        <h4 class="text-base md:text-lg font-bold text-navy-800 mb-3">Invoice & Statement Reconciliation</h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed mb-6">Cross-checking billing data manually against incoming statements regularly induced operational backlogs and entry delays.</p>
+                        
+                        <div class="border-t border-slate-100 pt-4 space-y-2">
+                            <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Workforce Enablement:</div>
+                            <p class="text-xs md:text-sm text-slate-700 leading-relaxed">Internal staff trained to navigate an independent verification framework embedded smoothly inside active spreadsheet layouts.</p>
+                        </div>
+                    </div>
+                    <div class="bg-emerald-50/60 p-5 border-t border-slate-100">
+                        <div class="flex justify-between items-center mb-2 gap-2">
+                            <span class="text-[10px] font-bold uppercase text-slate-400 tracking-wider whitespace-nowrap">Productivity Case Study</span>
+                            <a href="https://www.nilus.com/blog/reconciliation-automation-how-finance-teams-eliminate-40-hours-of-manual-matching-per-month" target="_blank" class="text-emerald-700 hover:text-emerald-900 transition text-xs font-semibold flex items-center shrink-0">
+                                View Source <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                            </a>
+                        </div>
+                        <div class="text-xl md:text-2xl font-black text-emerald-700 tracking-tight">85% Time Saved</div>
+                    </div>
+                </div>
+
+                <!-- Logistics Example -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden flex flex-col justify-between shadow-sm">
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-sky-50 text-sky-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">Logistics</span>
+                            <span class="text-slate-400 text-[10px] font-mono">Micro-Area Focus</span>
+                        </div>
+                        <h4 class="text-base md:text-lg font-bold text-navy-800 mb-3">Manifest Data Synchronization</h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed mb-6">Manual typing of fluctuating manifest logistics details across separate sheets generated frequent scheduling mismatches.</p>
+                        
+                        <div class="border-t border-slate-100 pt-4 space-y-2">
+                            <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Workforce Enablement:</div>
+                            <p class="text-xs md:text-sm text-slate-700 leading-relaxed">Clerks upskilled to deploy context-aware data formatting routines utilizing existing structural communication channels.</p>
+                        </div>
+                    </div>
+                    <div class="bg-sky-50/60 p-5 border-t border-slate-100">
+                        <div class="flex justify-between items-center mb-2 gap-2">
+                            <span class="text-[10px] font-bold uppercase text-slate-400 tracking-wider whitespace-nowrap">Error Reduction Study</span>
+                            <a href="https://www.nilus.com/blog/how-to-automate-bank-reconciliation-the-complete-guide-for-high-volume-businesses/" target="_blank" class="text-sky-700 hover:text-sky-900 transition text-xs font-semibold flex items-center shrink-0">
+                                View Source <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                            </a>
+                        </div>
+                        <div class="text-xl md:text-2xl font-black text-sky-700 tracking-tight">90% Less Discrepancies</div>
+                    </div>
+                </div>
+
+                <!-- Operations Example -->
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden flex flex-col justify-between shadow-sm">
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-purple-50 text-purple-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">Operations</span>
+                            <span class="text-slate-400 text-[10px] font-mono">Micro-Area Focus</span>
+                        </div>
+                        <h4 class="text-base md:text-lg font-bold text-navy-800 mb-3">Customer Inquiry Response Sorting</h4>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed mb-6">Sorting initial customer information requests ate up key working hours daily, producing delayed response margins.</p>
+                        
+                        <div class="border-t border-slate-100 pt-4 space-y-2">
+                            <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Workforce Enablement:</div>
+                            <p class="text-xs md:text-sm text-slate-700 leading-relaxed">Support personnel trained to review and release intelligent response structures integrated directly within current inboxes.</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50/60 p-5 border-t border-slate-100">
+                        <div class="flex justify-between items-center mb-2 gap-2">
+                            <span class="text-[10px] font-bold uppercase text-slate-400 tracking-wider whitespace-nowrap">Capacity Index</span>
+                            <a href="https://checkthat.ai/brands/nilus/reviews" target="_blank" class="text-purple-700 hover:text-purple-900 transition text-xs font-semibold flex items-center shrink-0">
+                                View Source <i class="fa-solid fa-arrow-up-right-from-square ml-1.5 text-[10px]"></i>
+                            </a>
+                        </div>
+                        <div class="text-xl md:text-2xl font-black text-purple-700 tracking-tight">100+ Hours Saved / Mo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach -->
+    <section id="approach" class="py-16 md:py-24 max-w-6xl mx-auto px-4 md:px-6 border-t border-slate-200">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-2">The AI Adoption Framework</h2>
+            <p class="text-xs md:text-base text-slate-600 font-medium mb-6">Ocean-boiling structural disruption is avoided entirely. Consulting delivery concentrates on identifying targeted <strong>Micro-Area(s)</strong> in Finance, Logistics, or Operations, training the workforce to master tools independently.</p>
+            <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-100 text-xs md:text-sm text-slate-700 text-left md:text-center font-medium">
+                <i class="fa-solid fa-graduation-cap text-brightBlue mr-2"></i> Step-by-step guidance along the path ensures employees develop true technical capability.
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <!-- Step 1 -->
+            <div class="bg-white p-6 md:p-8 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="bg-brightBlue text-white font-bold text-xs md:text-sm w-8 h-8 rounded-full flex items-center justify-center mb-4">1</div>
+                    <h3 class="text-base md:text-lg font-bold text-navy-800 mb-3">Identify the Micro-Area(s)</h3>
+                    <p class="text-slate-600 text-xs md:text-sm leading-relaxed">
+                        The Discovery Session. Detailed evaluation isolates the exact <strong>Micro-Area(s)</strong> where administrative tasks or data mistakes exhaust staff resources. This functions as the diagnostic launchpad.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-white p-6 md:p-8 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="bg-brightBlue text-white font-bold text-xs md:text-sm w-8 h-8 rounded-full flex items-center justify-center mb-4">2</div>
+                    <h3 class="text-base md:text-lg font-bold text-navy-800 mb-3">Workforce Ownership</h3>
+                    <p class="text-slate-600 text-xs md:text-sm leading-relaxed">
+                        AI adoption empowers the existing team to streamline daily workflows and maximize operational output. The strategy focuses on upskilling employees to configure AI tools within their current focus areas, unlocking immediate efficiency and complete operational independence.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-white p-6 md:p-8 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="bg-navy-800 text-white font-bold text-xs md:text-sm w-8 h-8 rounded-full flex items-center justify-center mb-4">3</div>
+                    <h3 class="text-base md:text-lg font-bold text-navy-800 mb-3">The Next Frontier: Agents & Automation</h3>
+                    <p class="text-slate-600 text-xs md:text-sm leading-relaxed">
+                        This initial adoption opens the door to the future of work. Once the workforce masters these foundational basics, the path leads directly into deeper automation and autonomous AI agents, allowing the team to handle scaling workloads independently.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Page Section -->
+    <section id="contact" class="bg-navy-800 text-white py-16 md:py-24 px-4 md:px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold mb-2">Request a Discovery Session</h2>
+                <p class="text-xs md:text-sm text-slate-300">Pinpoint the specific Micro-Area(s) ready for workforce enablement and independence.</p>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="bg-white text-slate-800 p-6 md:p-8 rounded-2xl shadow-xl space-y-6 max-w-2xl mx-auto w-full">
+                
+                <input type="hidden" name="access_key" value="47476b7f-e3ef-4c8c-8b70-7d976b1dac5b">
+                <input type="hidden" name="from_name" value="Solution - Possible Lead">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Contact Name</label>
+                        <input type="text" name="client_name" required placeholder="Name" class="w-full p-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:border-brightBlue transition text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Corporate Email</label>
+                        <input type="email" name="client_email" required placeholder="email@company.com" class="w-full p-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:border-brightBlue transition text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-slate-700 mb-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1 block sm:inline mb-1 sm:mb-0">Diagnostic Scope:</span> 
+                        <span class="text-xs md:text-sm font-medium">What specific Micro-Area(s) or administrative processing loops cause core delays for the workforce?</span>
+                    </label>
+                    <textarea name="diagnostic_scope" rows="4" required placeholder="e.g., Manual cross-referencing invoice lines, transcribing repetitive logistics lists, processing customer notification emails..." class="w-full p-3 rounded-lg bg-slate-50 border border-slate-200 focus:outline-none focus:border-brightBlue transition text-xs md:text-sm text-slate-800"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brightBlue hover:bg-navy-900 text-white font-bold py-3.5 rounded-lg shadow-md transition uppercase tracking-wider text-xs md:text-sm">
+                    Schedule Discovery Session
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 text-slate-400 py-10 text-center text-[10px] md:text-xs border-t border-navy-800 px-4 md:px-6">
+        <p class="font-semibold text-slate-300 mb-2">&copy; 2026 Solution - Possible. All rights reserved.</p>
+        <p class="text-slate-500 max-w-md mx-auto leading-relaxed">Strategic AI Adoption consultation. Delivering workforce upskilling, systemic precision updates, and long-term operational team independence.</p>
+    </footer>
+
+
+    <!-- ================================================================= -->
+    <!-- HIGH-PRECISION VISIBILITY TRACKING SYSTEM -->
+    <!-- ================================================================= -->
+    <script>
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            // 1. DESKTOP RUNTIME EXECUTION (Fixed overlapping layouts cleanly)
+            const desktopHeader = document.getElementById('desktop-header');
+            const logoWrap = document.getElementById('logo-wrap');
+            
+            if (currentScrollY > 20) {
+                // Squeeze down header dimensions neatly without visual pops
+                desktopHeader.classList.remove('h-44');
+                desktopHeader.classList.add('h-20', 'scrolled');
+                logoWrap.classList.remove('w-64');
+                logoWrap.classList.add('w-44');
+            } else {
+                // Safely restore big layout values at absolute top point
+                desktopHeader.classList.remove('h-20', 'scrolled');
+                desktopHeader.classList.add('h-44');
+                logoWrap.classList.remove('w-44');
+                logoWrap.classList.add('w-64');
+            }
+
+            // 2. MOBILE RUNTIME EXECUTION (Roll away header container safely)
+            const mobileHeader = document.getElementById('mobile-header');
+            const mobileLogoBox = document.getElementById('mobile-logo-box');
+
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                // Scrolling Down: Push header completely out of sight
+                mobileHeader.classList.add('mobile-header-hide');
+            } else {
+                // Scrolling Up: Return bar back down smoothly
+                mobileHeader.classList.remove('mobile-header-hide');
+                
+                if (currentScrollY > 30) {
+                    // Squeeze down layout tracking footprint dynamically
+                    mobileLogoBox.classList.remove('opacity-100', 'h-12', 'scale-100');
+                    mobileLogoBox.classList.add('opacity-0', 'h-0', 'scale-75');
+                } else {
+                    mobileLogoBox.classList.remove('opacity-0', 'h-0', 'scale-75');
+                    mobileLogoBox.classList.add('opacity-100', 'h-12', 'scale-100');
+                }
+            }
+
+            lastScrollY = currentScrollY;
+        });
+    </script>
+
+</body>
+</html>
